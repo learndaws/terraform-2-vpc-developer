@@ -18,7 +18,10 @@ variable "common_tags" {
     }
 }
 
-variable "functional_tags" {
+variable "vpc_function_tags" {
     type = map
-    default = {}    
+}
+
+variable "igw_function_tags" {
+    type = map
 }
