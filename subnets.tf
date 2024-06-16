@@ -3,6 +3,7 @@ resource "aws_subnet" "roboshop_public" {
   vpc_id     = aws_vpc.developer.id
   cidr_block = var.public_cidr_subnets[count.index]
   availability_zone = local.availability_zone[count.index]
+  map_public_ip_on_launch = "true"
 
   tags = merge(var.common_tags, var.public_subnet_function_tags)
 }
