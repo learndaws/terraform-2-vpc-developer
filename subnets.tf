@@ -24,3 +24,16 @@ resource "aws_subnet" "roboshop_database" {
 
   tags = merge(var.common_tags, var.database_subnet_function_tags)
 }
+
+resource "aws_db_subnet_group" "default" {
+  name       = "database_subnet_group"
+  subnet_ids = aws_subnet.roboshop_database[*].id
+
+  tags = {
+    Name = "database_subnet_group"
+  }
+}
+
+resource "aws_eip" "eip" {
+  domain           = "vpc"
+}
