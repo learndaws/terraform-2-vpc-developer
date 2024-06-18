@@ -17,7 +17,3 @@ output "private_subnet_ids" {
 output "database_subnet_ids" {
   value = aws_subnet.roboshop_database[*].id
 }
-
-output "deletelater" {
-  value = data.aws_route_table.default
-}
